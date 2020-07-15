@@ -3,7 +3,7 @@ JavaScript fractal fern generation and animation example.
 
 Examples
 ----
-[View an example](https://mikhailsdv.github.io/fractal-fern-generator/)
+[View an example](https://mikhailsdv.github.io/fractal-fern-generator/). Reload page to generate new fern.
 
 About
 ---
