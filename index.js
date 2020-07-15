@@ -1,6 +1,6 @@
 const scale = 2; //how detalizes shoul canvas be. 2 means 2 times bigger than screen size
-const dotRadius = 1.4;
-const dotsAmount = 15000; //how maty dots will be used to draw fern
+const dotRadius = 1.8;
+const dotsAmount = 20000; //how maty dots will be used to draw fern
 const backgroundColor = "lightgray";
 const animateGrowth = true; //if true fractal will grow smoothly
 const width = document.documentElement.offsetWidth * scale; //width of canvas
@@ -115,8 +115,8 @@ const mutate = () => {
 		}
 
 		//scaling and adjustment
-		let plotX = Math.round(width * (x + 7) / 14);
-		let plotY = Math.round(height - height * ((y + 2) / 14));
+		let plotX = Math.round(width * (x + (width / 400)) / (width / 200));
+		let plotY = Math.round(height - height * ((y + (height / 1000)) / (height / 100)));
 
 		dots.push({
 			x: plotX,
