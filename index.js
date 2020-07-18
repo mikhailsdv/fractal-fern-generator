@@ -1,8 +1,8 @@
-const scale = 2; //how detalizes shoul canvas be. 2 means 2 times bigger than screen size
+const scale = 2; //how detalized canvas should be. 2 means 2 times bigger than the screen size
 const dotRadius = 1.8;
-const dotsAmount = 20000; //how maty dots will be used to draw fern
+const dotsAmount = 20000; //how many dots will be used to draw fern
 const backgroundColor = "lightgray";
-const animateGrowth = true; //if true fractal will grow smoothly
+const animateGrowth = true; //if true the fractal will grow smoothly
 const width = document.documentElement.offsetWidth * scale; //width of canvas
 const height = document.documentElement.offsetHeight * scale; //height of canvas
 
@@ -19,7 +19,7 @@ const randInt = (from, to) => {
 }
 
 const getBarnsley = () => {
-	//main function than defines contants for fern
+	//main function than defines constants for fern
 	//returns array of objects of constants
 	//play with randInt values to generate different ferns
 	let result = [];
@@ -77,7 +77,7 @@ const getBarnsley = () => {
 }
 
 const drawDots = (arr, ctx, color) => {
-	//gets an array of dots positions and drows them
+	//gets an array of dots' positions and drows them
 	ctx.fillStyle = color;
 	arr.forEach(dot => {
 		ctx.beginPath();
@@ -99,7 +99,7 @@ const mutate = () => {
 		ctx.fillRect(0, 0, width, height);
 		
 		let nextX, nextY;
-		let r = Math.random(); //get probability (.p kay of constant)
+		let r = Math.random(); //get probability (.p key of constant)
 		if (r < barnsley[0].p) {
 			nextX =  barnsley[0].a * x + barnsley[0].b * y;
 			nextY =  barnsley[0].c * x + barnsley[0].d * y + barnsley[0].f;
@@ -132,10 +132,11 @@ const mutate = () => {
 	//if animate - start animation loop
 	if (animateGrowth) {
 		mutationIndex++;
-		//here goes any time functon you want
+		//here goes any time function you want
 		//you should transit growthRate form 0 to 1
+		//this is mine. looks ugly - works fine)
 		growthRate += (mutationIndex ** -2) * 1.56;
-		//stop loop at any point
+		//stop loop at any point of growthRate
 		if (growthRate < .99) window.requestAnimationFrame(mutate);
 	}
 };
